@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Altas, Bajas y Cambios de productos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="functions.js"></script>
+
+    <h1>Tabla de Productos</h1>
+    <table id="element-table" border=3>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Producto</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="element-list"></tbody>
+    </table><br>
+    <h3>ID:</h3><input type="text" id="id" placeholder="ID">
+    <h3>Nombre del producto:</h3> <input type="text" id="product-name" placeholder="Nombre del producto">
+    <h3>Descripcion:</h3><input type="text" id="description" placeholder="Descripción">
+    <br><br>
+    <button class="btn AgregarB" ; onClick="agregarElemento()">Agregar</button>
+    <button class="btn BorrarB" ; onClick="borrarElemento()">Borrar</button>
+    <button class="btn EditarB" ; onClick="editarElemento()">Editar</button>
+    <button class="btn LimpiarB" ;onClick="LimpiarCasillas()">Limpiar</button>
+</body>
+
+</html>
