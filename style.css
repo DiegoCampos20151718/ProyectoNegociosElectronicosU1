@@ -1,0 +1,39 @@
+.btn {
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.AgregarB {
+    background-color: #04AA6D;
+}
+
+.AgregarB:hover {
+    background: #46a049;
+}
+
+.BorrarB {
+    background-color: #f44336;
+}
+
+.BorrarB:hover {
+    background: #da190b;
+}
+
+.EditarB {
+    background-color: #ff9800;
+}
+
+.EditarB:hover {
+    background: #e68a00;
+}
+
+.LimpiarB {
+    background-color: #007bff;
+}
+
+.LimpiarB:hover {
+    background: #0b7dda;
+}
