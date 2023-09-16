@@ -28,7 +28,7 @@ function LimpiarCasillas() {
     document.getElementById("description").value = "";
 }
 
-borrarElemento() {
+function borrarElemento() {
     var elementoSeleccionado = document.querySelector('input[name="elemento"]:checked');
     if (elementoSeleccionado) {
         var indice = elementoSeleccionado.value;
