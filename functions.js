@@ -62,3 +62,37 @@ function actualizarTabla() {
 
 // Inicializar la tabla al cargar la página
 actualizarTabla();
+
+// Función para editar un elemento
+function editarElemento() {
+    var elementoSeleccionado = document.querySelector('input[name="elemento"]:checked');
+    if (elementoSeleccionado) {
+        var indice = elementoSeleccionado.value;
+        var elemento = elementos[indice];
+        var nuevoID = document.getElementById("id").value;
+        var nuevoNombre = document.getElementById("product-name").value;
+        var nuevaDescripcion = document.getElementById("description").value;
+        if (nuevoID !== null && nuevoNombre !== null && nuevaDescripcion !== null) {
+            elementos[indice] = {
+                id: nuevoID,
+                nombre: nuevoNombre,
+                descripcion: nuevaDescripcion
+            };
+            document.getElementById("id").value = "";
+            document.getElementById("product-name").value = "";
+            document.getElementById("description").value = "";
+            actualizarTabla();
+        }
+    }
+}
+
+function MostrarInfoC() {
+    var elementoSeleccionado = document.querySelector('input[name="elemento"]:checked');
+    if (elementoSeleccionado) {
+        var indice = elementoSeleccionado.value;
+        var elemento = elementos[indice];
+        document.getElementById("id").value = elemento.id;
+        document.getElementById("product-name").value = elemento.nombre;
+        document.getElementById("description").value = elemento.descripcion;
+    }
+}
