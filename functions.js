@@ -27,3 +27,38 @@ function LimpiarCasillas() {
     document.getElementById("product-name").value = "";
     document.getElementById("description").value = "";
 }
+
+borrarElemento() {
+    var elementoSeleccionado = document.querySelector('input[name="elemento"]:checked');
+    if (elementoSeleccionado) {
+        var indice = elementoSeleccionado.value;
+        elementos.splice(indice, 1);
+        actualizarTabla();
+        document.getElementById("id").value = "";
+        document.getElementById("product-name").value = "";
+        document.getElementById("description").value = "";
+    }
+}
+// Función para actualizar la tabla en el HTML
+function actualizarTabla() {
+    var elementTable = document.getElementById("element-table");
+    var tbody = document.getElementById("element-list");
+    tbody.innerHTML = "";
+
+    for (var i = 0; i < elementos.length; i++) {
+        var elemento = elementos[i];
+        var row = tbody.insertRow(i);
+        var cellId = row.insertCell(0);
+        var cellNombre = row.insertCell(1);
+        var cellDescripcion = row.insertCell(2);
+        var cellAcciones = row.insertCell(3);
+
+        cellId.innerHTML = elemento.id;
+        cellNombre.innerHTML = elemento.nombre;
+        cellDescripcion.innerHTML = elemento.descripcion;
+        cellAcciones.innerHTML = '<input type="radio" name="elemento" onclick=MostrarInfoC(); value="' + i + '">';
+    }
+}
+
+// Inicializar la tabla al cargar la página
+actualizarTabla();
