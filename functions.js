@@ -8,19 +8,29 @@ function agregarElemento() {
     var descripcion = document.getElementById("description").value;
 
     if (id.trim() !== "" && nombre.trim() !== "" && descripcion.trim() !== "") {
-        var elemento = {
-            id: id,
-            nombre: nombre,
-            descripcion: descripcion
-        };
+        // Verificar si el ID ya existe en la lista de elementos
+        var idExistente = elementos.some(function(elemento) {
+            return elemento.id === id;
+        });
 
-        elementos.push(elemento);
-        actualizarTabla();
-        document.getElementById("id").value = "";
-        document.getElementById("product-name").value = "";
-        document.getElementById("description").value = "";
+        if (!idExistente) {
+            var elemento = {
+                id: id,
+                nombre: nombre,
+                descripcion: descripcion
+            };
+
+            elementos.push(elemento);
+            actualizarTabla();
+            document.getElementById("id").value = "";
+            document.getElementById("product-name").value = "";
+            document.getElementById("description").value = "";
+        } else {
+            alert("El ID ya existe. Por favor, ingrese un ID único.");
+        }
     }
 }
+
 
 function LimpiarCasillas() {
     document.getElementById("id").value = "";
