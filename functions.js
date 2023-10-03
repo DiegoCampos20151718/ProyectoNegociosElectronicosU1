@@ -82,19 +82,30 @@ function editarElemento() {
         var nuevoID = document.getElementById("id").value;
         var nuevoNombre = document.getElementById("product-name").value;
         var nuevaDescripcion = document.getElementById("description").value;
+
         if (nuevoID !== null && nuevoNombre !== null && nuevaDescripcion !== null) {
-            elementos[indice] = {
-                id: nuevoID,
-                nombre: nuevoNombre,
-                descripcion: nuevaDescripcion
-            };
-            document.getElementById("id").value = "";
-            document.getElementById("product-name").value = "";
-            document.getElementById("description").value = "";
-            actualizarTabla();
+            // Verificar si el nuevo ID ya existe en la lista de elementos (excepto en el elemento actual)
+            var idExistente = elementos.some(function(el, i) {
+                return i != indice && el.id === nuevoID;
+            });
+
+            if (!idExistente) {
+                elementos[indice] = {
+                    id: nuevoID,
+                    nombre: nuevoNombre,
+                    descripcion: nuevaDescripcion
+                };
+                document.getElementById("id").value = "";
+                document.getElementById("product-name").value = "";
+                document.getElementById("description").value = "";
+                actualizarTabla();
+            } else {
+                alert("El nuevo ID ya existe. Por favor, ingrese un ID único.");
+            }
         }
     }
 }
+
 
 function MostrarInfoC() {
     var elementoSeleccionado = document.querySelector('input[name="elemento"]:checked');
