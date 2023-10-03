@@ -114,6 +114,6 @@ function MostrarInfoC() {
         var elemento = elementos[indice];
         document.getElementById("id").value = elemento.id;
         document.getElementById("product-name").value = elemento.nombre;
-        document.getElementById("description").value = elemento.descripcion;
+        document.getElementById("description").value = elemento.description;
     }
 }
