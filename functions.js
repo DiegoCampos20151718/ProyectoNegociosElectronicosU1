@@ -1,32 +1,26 @@
 // Array para almacenar los elementos como objetos
 var elementos = [];
+var ultimoID = 0;
 
 // Función para agregar un elemento
 function agregarElemento() {
-    var id = document.getElementById("id").value;
     var nombre = document.getElementById("product-name").value;
     var descripcion = document.getElementById("description").value;
 
-    if (id.trim() !== "" && nombre.trim() !== "" && descripcion.trim() !== "") {
-        // Verificar si el ID ya existe en la lista de elementos
-        var idExistente = elementos.some(function(elemento) {
-            return elemento.id === id;
-        });
-
-        if (!idExistente) {
-            var elemento = {
-                id: id,
-                nombre: nombre,
-                descripcion: descripcion
-            };
+    if (nombre.trim() !== "" && descripcion.trim() !== "") {
+        // Generar ID automatico.
+        ultimoID++;
+        var id = ultimoID.toString();
+        
+        var elemento = {
+            id: id,
+            nombre: nombre,
+            descripcion: descripcion
 
             elementos.push(elemento);
             actualizarTabla();
-            document.getElementById("id").value = "";
             document.getElementById("product-name").value = "";
             document.getElementById("description").value = "";
-        } else {
-            alert("El ID ya existe. Por favor, ingrese un ID único.");
         }
     }
 }
