@@ -28,6 +28,7 @@ function agregarElemento() {
 
 
 function LimpiarCasillas() {
+    document.getElementById("id").textContent = "Producto";
     document.getElementById("product-name").value = "";
     document.getElementById("description").value = "";
 }
