@@ -28,7 +28,6 @@ function agregarElemento() {
 
 
 function LimpiarCasillas() {
-    
     document.getElementById("product-name").value = "";
     document.getElementById("description").value = "";
 }
@@ -80,7 +79,7 @@ function editarElemento() {
 
         if (nuevoID !== null && nuevoNombre !== null && nuevaDescripcion !== null) {
             // Verifica si el nuevo ID ya existe en la lista de elementos (excepto en el elemento actual)
-            var idExistente = elementos.some(function(el, i) {
+            var idExistente = elementos.some(function (el, i) {
                 return i != indice && el.id === nuevoID;
             });
 
@@ -90,7 +89,7 @@ function editarElemento() {
                     nombre: nuevoNombre,
                     descripcion: nuevaDescripcion
                 };
-                
+
                 document.getElementById("id").textContent = "Producto";
                 document.getElementById("product-name").value = "";
                 document.getElementById("description").value = "";
