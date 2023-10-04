@@ -38,13 +38,14 @@
             <div class="col-md-7 col-lg-8">
                 <h3>Producto</h3>
                 <div class="input-group">
-                    <span class="input-group-text">Producto</span>
-                    <input type="text" class="form-control" id="id" placeholder="ID">
+                    <span class="input-group-text" id="id">Producto</span>
                     <input type="text" class="form-control" id="product-name" placeholder="Nombre">
                     <input type="text" class="form-control" id="description" placeholder="Descripción">
-                </div>
-                <br><br>
-                <button class="btn btn-success rounded-pill px-3" onClick="agregarElemento()">Agregar</button>
+                </div><br>
+                <button class="btn btn-success rounded-pill px-3"
+                onmouseover="document.getElementById('id').textContent = 'Producto';"
+                onmouseout="aestheticShow();"
+                onClick="agregarElemento()">Agregar</button>
                 <button class="btn btn-danger rounded-pill px-3" onClick="borrarElemento()">Borrar</button>
                 <button class="btn btn-secondary rounded-pill px-3" onClick="editarElemento()">Editar</button>
                 <button class="btn btn-warning rounded-pill px-3" onClick="LimpiarCasillas()">Limpiar</button>

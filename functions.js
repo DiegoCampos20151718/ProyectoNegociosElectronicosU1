@@ -20,6 +20,7 @@ function agregarElemento() {
 
         elementos.push(elemento);
         actualizarTabla();
+        document.getElementById("id").textContent = "Producto";
         document.getElementById("product-name").value = "";
         document.getElementById("description").value = "";
     }
@@ -27,7 +28,7 @@ function agregarElemento() {
 
 
 function LimpiarCasillas() {
-    document.getElementById("id").value = "";
+    
     document.getElementById("product-name").value = "";
     document.getElementById("description").value = "";
 }
@@ -38,7 +39,7 @@ function borrarElemento() {
         var indice = elementoSeleccionado.value;
         elementos.splice(indice, 1);
         actualizarTabla();
-        document.getElementById("id").value = "";
+        document.getElementById("id").textContent = "Producto";
         document.getElementById("product-name").value = "";
         document.getElementById("description").value = "";
     }
@@ -73,12 +74,12 @@ function editarElemento() {
     if (elementoSeleccionado) {
         var indice = elementoSeleccionado.value;
         var elemento = elementos[indice];
-        var nuevoID = document.getElementById("id").value;
+        var nuevoID = document.getElementById("id").textContent;
         var nuevoNombre = document.getElementById("product-name").value;
         var nuevaDescripcion = document.getElementById("description").value;
 
         if (nuevoID !== null && nuevoNombre !== null && nuevaDescripcion !== null) {
-            // Verificar si el nuevo ID ya existe en la lista de elementos (excepto en el elemento actual)
+            // Verifica si el nuevo ID ya existe en la lista de elementos (excepto en el elemento actual)
             var idExistente = elementos.some(function(el, i) {
                 return i != indice && el.id === nuevoID;
             });
@@ -89,7 +90,8 @@ function editarElemento() {
                     nombre: nuevoNombre,
                     descripcion: nuevaDescripcion
                 };
-                document.getElementById("id").value = "";
+                
+                document.getElementById("id").textContent = "Producto";
                 document.getElementById("product-name").value = "";
                 document.getElementById("description").value = "";
                 actualizarTabla();
@@ -100,14 +102,22 @@ function editarElemento() {
     }
 }
 
-
 function MostrarInfoC() {
     var elementoSeleccionado = document.querySelector('input[name="elemento"]:checked');
     if (elementoSeleccionado) {
         var indice = elementoSeleccionado.value;
         var elemento = elementos[indice];
-        document.getElementById("id").value = elemento.id;
+        document.getElementById("id").textContent = elemento.id;
         document.getElementById("product-name").value = elemento.nombre;
-        document.getElementById("description").value = elemento.description;
+        document.getElementById("description").value = elemento.descripcion;
+    }
+}
+
+function aestheticShow() {
+    var elementoSeleccionado = document.querySelector('input[name="elemento"]:checked');
+    if (elementoSeleccionado) {
+        var indice = elementoSeleccionado.value;
+        var elemento = elementos[indice];
+        document.getElementById("id").textContent = elemento.id;
     }
 }
