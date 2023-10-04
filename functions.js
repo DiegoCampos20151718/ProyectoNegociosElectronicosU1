@@ -11,17 +11,17 @@ function agregarElemento() {
         // Generar ID automatico.
         ultimoID++;
         var id = ultimoID.toString();
-        
+
         var elemento = {
             id: id,
             nombre: nombre,
             descripcion: descripcion
+        };
 
-            elementos.push(elemento);
-            actualizarTabla();
-            document.getElementById("product-name").value = "";
-            document.getElementById("description").value = "";
-        }
+        elementos.push(elemento);
+        actualizarTabla();
+        document.getElementById("product-name").value = "";
+        document.getElementById("description").value = "";
     }
 }
 
